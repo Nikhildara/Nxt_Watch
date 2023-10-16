@@ -8,7 +8,7 @@ import {GamingCon, GamingPage} from './StyledComponent'
 const Gaming = () => {
   const {dark} = useContext(WatchContext)
   return (
-    <GamingPage>
+    <GamingPage dark={dark} data-testid="gaming">
       <Navbar />
       <GamingCon>
         <Sidebar />

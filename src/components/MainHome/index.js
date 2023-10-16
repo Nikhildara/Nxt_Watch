@@ -80,7 +80,7 @@ class MainHome extends Component {
       }
     }
 
-    if (response.status === 404) {
+    if (response.ok === false) {
       this.setState({renderStat: RenderStatus.failure})
     }
   }
@@ -143,7 +143,7 @@ class MainHome extends Component {
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
         }
-        alt="Failure Image"
+        alt="failure view"
       />
       <NoResultHead dark={dark}>Oops! Something Went Wrong</NoResultHead>
       <NoResultDes>
@@ -185,16 +185,19 @@ class MainHome extends Component {
           const {dark} = value
           return (
             <MainHomeCon>
-              <PremiumCard showAdd={showAdd}>
+              <PremiumCard showAdd={showAdd} data-testid="banner">
                 <CloseIconCon>
-                  <ButtonClose onClick={() => this.setState({showAdd: false})}>
+                  <ButtonClose
+                    onClick={() => this.setState({showAdd: false})}
+                    data-testid="close"
+                  >
                     <AiOutlineClose />
                   </ButtonClose>
                 </CloseIconCon>
                 <div>
                   <Logo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="Website Logo"
+                    alt="nxt watch logo"
                   />
                   <CardDes>
                     Buy Nxt Watch Premium prepaid plans with UPI
@@ -211,8 +214,11 @@ class MainHome extends Component {
                       dark={dark}
                       onChange={this.setInputSearch}
                     />
-                    <SearchIcon dark={dark}>
-                      <ButtonSearch onClick={this.searchBtn}>
+                    <SearchIcon dark={dark} data-testid="searchButton">
+                      <ButtonSearch
+                        onClick={this.searchBtn}
+                        data-testid="searchButton"
+                      >
                         <BsSearch />
                       </ButtonSearch>
                     </SearchIcon>

@@ -14,7 +14,7 @@ const GamingThumbnailItem = props => {
   return (
     <Link to={`/videos/${id}`} style={{'text-decoration': 'none'}}>
       <GamingThumbCon>
-        <GamingImg src={thumbnailUrl} alt="thumbnail image" />
+        <GamingImg src={thumbnailUrl} alt="video thumbnail" />
         <GamingDesCon>
           <GamingTitle dark={dark}>{title}</GamingTitle>
           <GamingViews dark={dark}>{viewCount} Watching Worldwide</GamingViews>

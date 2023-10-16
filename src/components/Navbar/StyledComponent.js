@@ -13,6 +13,9 @@ export const NavbarCon = styled.nav`
   padding: 12px 10px;
   display: flex;
   justify-content: space-between;
+  font-family: 'Roboto';
+  width: 100%;
+  //  position: fixed;
 `
 
 export const Logo = styled.img`
@@ -124,3 +127,41 @@ export const NavMenuCon = styled.ul`
 // `
 
 // style={!showMenu && {display: 'none'}}
+export const PopupCon = styled.div`
+  height: 180px;
+  width: 350px;
+  background-color: ${props => (!props.dark ? 'white' : '#231f20')};
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'Roboto';
+`
+export const CancelBtn = styled.button`
+  background-color: transparent;
+  border-radius: 3px;
+  color: #7e858e;
+  border: 1px solid #94a3b8;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+`
+export const LogoutBtn = styled.button`
+  background-color: #3b82f6;
+  border-radius: 3px;
+  color: white;
+  border: 0px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+`
+export const BtnCon = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+`
+export const ModelDes = styled.p`
+  font-size: 17px;
+  color: ${props => (!props.dark ? ' #00306e ' : 'white')};
+`

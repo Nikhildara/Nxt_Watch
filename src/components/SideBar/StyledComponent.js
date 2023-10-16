@@ -8,6 +8,7 @@ export const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  // position: fixed;
   @media (max-width: 767px) {
     display: none;
   }
@@ -34,7 +35,7 @@ export const SocialImg = styled.img`
   border-radius: 50%;
 `
 
-export const ContactUs = styled.h1`
+export const ContactUs = styled.p`
   font-size: 15px;
 `
 export const ContactDes = styled.p`

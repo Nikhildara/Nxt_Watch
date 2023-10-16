@@ -31,4 +31,5 @@ export const TrendingHead = styled.h1`
 `
 export const TrendingPage = styled.div`
   padding: 0px;
+  background-color: ${props => (!props.dark ? '#f9f9f9' : '#0f0f0f')};
 `

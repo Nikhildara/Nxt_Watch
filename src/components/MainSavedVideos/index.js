@@ -22,9 +22,9 @@ const MainSavedVideos = () => {
   return (
     <TrendingCon
       dark={dark}
-      style={savedVideos.length < 2 ? {height: '95vh'} : null}
+      style={savedVideos.length < 2 ? {height: '94vh'} : null}
     >
-      <TrendingHeadCon dark={dark}>
+      <TrendingHeadCon dark={dark} data-testid="banner">
         <TrendIcon dark={dark}>
           <HiFire />
         </TrendIcon>

@@ -35,10 +35,10 @@ const ThumbnailItem = props => {
   return (
     <Link to={`/videos/${id}`} style={{'text-decoration': 'none'}}>
       <ThumbnailItemCon>
-        <ThumbnailImage src={thumbnailUrl} alt="thumbnail" />
+        <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
         <ThumbnailDetailsCon>
           <ProfileCon>
-            <Profile src={channel.profile_image_url} alt="profile" />
+            <Profile src={channel.profile_image_url} alt="channel logo" />
           </ProfileCon>
           <ThumbnailDetails>
             <ThumbHead dark={context.dark}>{title}</ThumbHead>

@@ -64,7 +64,7 @@ class MainTrending extends Component {
       }
     }
 
-    if (response.status === 404) {
+    if (response.ok === false) {
       this.setState({renderStat: RenderStatus.failure})
     }
   }
@@ -73,7 +73,7 @@ class MainTrending extends Component {
     const {updatedData} = this.state
     return (
       <>
-        <TrendingHeadCon dark={dark}>
+        <TrendingHeadCon dark={dark} data-testid="banner">
           <TrendIcon dark={dark}>
             <HiFire />
           </TrendIcon>
@@ -96,7 +96,7 @@ class MainTrending extends Component {
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
         }
-        alt="Failure Image"
+        alt="failure view"
       />
       <NoResultHead dark={dark}>Oops! Something Went Wrong</NoResultHead>
       <NoResultDes>

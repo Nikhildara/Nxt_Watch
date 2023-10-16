@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {Switch, Route} from 'react-router-dom'
+import ProjectedRoute from './components/ProtectedRoute'
 import WatchContext from './Context/WatchContext'
 import Login from './components/Login'
 import Home from './components/Home'
@@ -7,6 +8,7 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import VideoPlayer from './components/VideoPlayer'
 import SavedVideos from './components/SavedVideos'
+import Notfound from './components/Notfound'
 import './App.css'
 
 // Replace your code here
@@ -66,11 +68,12 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/trending" component={Trending} />
-          <Route exact path="/gaming" component={Gaming} />
-          <Route exact path="/videos/:id" component={VideoPlayer} />
-          <Route exact path="/saved-videos" component={SavedVideos} />
+          <ProjectedRoute exact path="/" component={Home} />
+          <ProjectedRoute exact path="/trending" component={Trending} />
+          <ProjectedRoute exact path="/gaming" component={Gaming} />
+          <ProjectedRoute exact path="/videos/:id" component={VideoPlayer} />
+          <ProjectedRoute exact path="/saved-videos" component={SavedVideos} />
+          <Route component={Notfound} />
         </Switch>
       </WatchContext.Provider>
     )

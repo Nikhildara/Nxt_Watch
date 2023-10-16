@@ -7,6 +7,7 @@ export const TrendingCon = styled.div`
   background-color: ${props => (!props.dark ? '  #f9f9f9' : '#0f0f0f')};
   @media (min-width: 768px) {
     width: 80vw;
+    // height: 100%;
   }
 `
 export const TrendingHeadCon = styled.div`

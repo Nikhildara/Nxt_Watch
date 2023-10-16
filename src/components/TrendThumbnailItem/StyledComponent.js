@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ThumbnailItemCon = styled.div`
+export const ThumbnailItemCon = styled.li`
   width: 100%;
 
   @media (min-width: 578px) {

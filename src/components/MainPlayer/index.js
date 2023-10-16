@@ -80,7 +80,7 @@ class MainPlayer extends Component {
       // console.log(updatedData)
       this.setState({Data: updatedData, renderStat: RenderStatus.success})
     }
-    if (response.status === 404) {
+    if (response.ok === false) {
       this.setState({renderStat: RenderStatus.failure})
     }
   }
@@ -179,7 +179,7 @@ class MainPlayer extends Component {
             <LikesDislikesCon>
               <SaveCon
                 dark={dark}
-                style={IsLiked ? {color: ' #3b82f6'} : null}
+                style={IsLiked ? {color: '#2563eb'} : null}
                 onClick={liked}
               >
                 <BiLike />
@@ -187,7 +187,7 @@ class MainPlayer extends Component {
               </SaveCon>
               <SaveCon
                 dark={dark}
-                style={IsDisliked ? {color: ' #3b82f6'} : null}
+                style={IsDisliked ? {color: ' #2563eb'} : null}
                 onClick={Disliked}
               >
                 <BiDislike />
@@ -195,17 +195,17 @@ class MainPlayer extends Component {
               </SaveCon>
               <SaveCon
                 dark={dark}
-                style={isSaved ? {color: ' #3b82f6'} : null}
+                style={isSaved ? {color: ' #2563eb'} : null}
                 onClick={addORremove}
               >
                 <BiListPlus />
-                <Like>Save</Like>
+                <Like>{!isSaved ? 'Save' : 'Saved'}</Like>
               </SaveCon>
             </LikesDislikesCon>
           </ViewsLikesCon>
           <Hr dark={dark} />
           <ProfileCon>
-            <Profile src={profileImageUrl} alt="Profile" />
+            <Profile src={profileImageUrl} alt="channel logo" />
             <TitleCon>
               <ProfileName dark={dark}>{name}</ProfileName>
               <Subscri dark={dark}>{SubscribeCount} subscribers</Subscri>
@@ -225,7 +225,7 @@ class MainPlayer extends Component {
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
         }
-        alt="Failure Image"
+        alt="failure view"
       />
       <NoResultHead dark={dark}>Oops! Something Went Wrong</NoResultHead>
       <NoResultDes>

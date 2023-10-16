@@ -14,7 +14,7 @@ class Trending extends Component {
         {value => {
           const {dark} = value
           return (
-            <TrendingPage>
+            <TrendingPage dark={dark} data-testid="trending">
               <Navbar />
               <TrendingCon>
                 <Sidebar />

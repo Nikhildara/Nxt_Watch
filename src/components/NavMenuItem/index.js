@@ -23,6 +23,7 @@ const NavMenuItem = props => {
         <StyledIcon dark={dark} isActive={isActive}>
           {icon}
         </StyledIcon>
+
         <MenuName dark={dark} isActive={isActive}>
           {title}
         </MenuName>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const GamingThumbCon = styled.div`
+export const GamingThumbCon = styled.li`
   padding: 0px;
 `
 export const GamingImg = styled.img`
@@ -28,7 +28,7 @@ export const GamingImg = styled.img`
 export const GamingDesCon = styled.div`
   padding: 0px;
 `
-export const GamingTitle = styled.h1`
+export const GamingTitle = styled.p`
   font-size: 15px;
   color: ${props => (!props.dark ? '#475569' : 'white')};
 `

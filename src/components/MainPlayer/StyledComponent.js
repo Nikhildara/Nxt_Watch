@@ -2,18 +2,17 @@ import styled from 'styled-components'
 
 export const VideoPlayerCon = styled.div`
   font-family: 'Roboto';
-  height: 95vh;
+  height: 100%;
   width: 100vw;
   background-color: ${props => (!props.dark ? '  #f9f9f9' : '#0f0f0f')};
   padding-top: 15px;
-  @media (min-width: 768px) {
-  }
+
   @media (min-width: 568px) {
     width: 98vw;
   }
   @media (min-width: 768px) {
     width: 78vw;
-    height: 100vh;
+    height: 100%;
     padding: 15px;
   }
   @media (min-width: 902px) {
@@ -21,7 +20,7 @@ export const VideoPlayerCon = styled.div`
   }
 `
 
-export const VideoThumb = styled.h1`
+export const VideoThumb = styled.p`
   font-size: 19px;
   font-weight: 500;
   color: ${props => (!props.dark ? ' #313131' : 'white')};

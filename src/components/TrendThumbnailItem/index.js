@@ -43,10 +43,10 @@ const TrendThumbnailItem = props => {
   return (
     <Link to={`/videos/${id}`} style={{'text-decoration': 'none'}}>
       <ThumbnailItemCon>
-        <ThumbnailImage src={thumbnailUrl} alt="thumbnail" />
+        <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
         <ThumbnailDetailsCon>
           <ProfileCon>
-            <Profile src={profileImageUrl} alt="profile" />
+            <Profile src={profileImageUrl} alt="channel logo" />
           </ProfileCon>
           <ThumbnailDetails>
             <ThumbHead dark={context.dark}>{title}</ThumbHead>

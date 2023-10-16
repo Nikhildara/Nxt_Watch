@@ -1,9 +1,11 @@
 import {Component} from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import {BiListPlus} from 'react-icons/bi'
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
+import Popup from 'reactjs-popup'
 import WatchContext from '../../Context/WatchContext'
 import {
   NavbarCon,
@@ -19,6 +21,11 @@ import {
   Profile,
   ButtonOut,
   NavMenuCon,
+  PopupCon,
+  ModelDes,
+  BtnCon,
+  CancelBtn,
+  LogoutBtn,
 } from './StyledComponent'
 import NavMenuItem from '../NavMenuItem'
 
@@ -34,8 +41,62 @@ class Navbar extends Component {
 
   ToHome = () => {
     const {history} = this.props
-    history.push('/')
+    history.replace('/')
   }
+
+  ToLogin = () => {
+    const {history} = this.props
+    Cookies.remove('jwt_token')
+    history.replace('/login')
+  }
+
+  renderLogoutBtn = dark => (
+    <Popup
+      modal
+      trigger={
+        <Button>
+          <Logout dark={dark} />
+        </Button>
+      }
+      overlayStyle={{backgroundColor: 'rgba(21, 21, 21, 0.44)'}}
+    >
+      {close => (
+        <PopupCon dark={dark}>
+          <ModelDes dark={dark}>Are you sure, you want to logout</ModelDes>
+          <BtnCon>
+            <CancelBtn onClick={close} dark={dark}>
+              Cancel
+            </CancelBtn>
+            <LogoutBtn onClick={this.ToLogin} dark={dark}>
+              Confirm
+            </LogoutBtn>
+          </BtnCon>
+        </PopupCon>
+      )}
+    </Popup>
+  )
+
+  renderLogoutBtnMD = dark => (
+    <Popup
+      modal
+      trigger={<ButtonOut dark={dark}>Logout</ButtonOut>}
+      overlayStyle={{backgroundColor: 'rgba(21, 21, 21, 0.44)'}}
+    >
+      {close => (
+        <PopupCon dark={dark}>
+          <ModelDes dark={dark}>Are you sure, you want to logout</ModelDes>
+          <BtnCon>
+            <CancelBtn onClick={close} dark={dark}>
+              Cancel
+            </CancelBtn>
+            <LogoutBtn onClick={this.ToLogin} dark={dark}>
+              Confirm
+            </LogoutBtn>
+          </BtnCon>
+        </PopupCon>
+      )}
+    </Popup>
+  )
 
   render() {
     const {showMenu} = this.state
@@ -48,13 +109,7 @@ class Navbar extends Component {
           return (
             <>
               <NavbarCon dark={dark}>
-                <Button
-                  onClick={() => {
-                    const {history} = this.props
-                    history.push('/')
-                    changeActiveTab(1)
-                  }}
-                >
+                <Link to="/">
                   <Logo
                     src={
                       !dark
@@ -62,10 +117,11 @@ class Navbar extends Component {
                         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                     }
                     alt="website logo"
+                    onClick={() => changeActiveTab(1)}
                   />
-                </Button>
+                </Link>
                 <IconsCon>
-                  <Button onClick={() => changeTheme()}>
+                  <Button onClick={() => changeTheme()} data-testid="theme">
                     {!dark ? <Moon /> : <Sun />}
                   </Button>
                   <Button
@@ -77,19 +133,17 @@ class Navbar extends Component {
                   >
                     {!showMenu ? <Menu dark={dark} /> : <Cross dark={dark} />}
                   </Button>
-                  <Button>
-                    <Logout dark={dark} />
-                  </Button>
+                  {this.renderLogoutBtn(dark)}
                 </IconsCon>
                 <IconConLarge>
-                  <Button onClick={() => changeTheme()}>
+                  <Button onClick={() => changeTheme()} data-testid="theme">
                     {!dark ? <Moon /> : <Sun />}
                   </Button>
                   <Profile
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
                   />
-                  <ButtonOut dark={dark}>Logout</ButtonOut>
+                  {this.renderLogoutBtnMD(dark)}
                 </IconConLarge>
               </NavbarCon>
               <NavMenuCon showMenu={showMenu}>
